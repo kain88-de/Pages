@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="{{ get_url(path='@/_index.md') }}">{{ config.title }}</a></h1>
+            <ul>
+                <li><a href="{{ get_url(path='@/_index.md') }}">Home</a></li>
+                <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author }}. Built with <a href="https://www.getzola.org/">Zola</a>.</p>
+    </footer>
+</body>
+</html>

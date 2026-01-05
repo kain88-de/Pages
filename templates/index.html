@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h2>Welcome to {{ config.title }}</h2>
+    <p>{{ config.description }}</p>
+</section>
+
+<section class="recent-posts">
+    <h3>Recent Posts</h3>
+    {% set blog_section = get_section(path="blog/_index.md") %}
+    <ul class="post-list">
+    {% for page in blog_section.pages %}
+        {% if loop.index <= 5 %}
+        <li>
+            <article>
+                <h4><a href="{{ page.permalink }}">{{ page.title }}</a></h4>
+                <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                {% if page.description %}
+                <p>{{ page.description }}</p>
+                {% endif %}
+            </article>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</section>
+{% endblock content %}
