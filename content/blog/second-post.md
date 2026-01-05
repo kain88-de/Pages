@@ -1,7 +1,8 @@
 +++
 title = "Setting Up GitHub Actions for Zola"
-date = 2026-01-05
+date = "2026-01-05"
 description = "A guide to automating your Zola blog deployment with GitHub Actions"
+
 [taxonomies]
 tags = ["github-actions", "ci-cd", "automation"]
 categories = ["tutorial"]

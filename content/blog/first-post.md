@@ -1,7 +1,8 @@
 +++
 title = "My First Blog Post"
-date = 2026-01-05
+date = "2026-01-05"
 description = "This is my first blog post using Zola and GitHub Actions"
+
 [taxonomies]
 tags = ["zola", "blogging", "github-actions"]
 categories = ["meta"]

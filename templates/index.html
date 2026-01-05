@@ -8,9 +8,10 @@
 
 <section class="recent-posts">
     <h3>Recent Posts</h3>
-    {% set blog = get_section(path="blog/_index.md") %}
+    {% set blog_section = get_section(path="blog/_index.md") %}
     <ul class="post-list">
-    {% for page in blog.pages | slice(end=5) %}
+    {% for page in blog_section.pages %}
+        {% if loop.index <= 5 %}
         <li>
             <article>
                 <h4><a href="{{ page.permalink }}">{{ page.title }}</a></h4>
@@ -20,6 +21,7 @@
                 {% endif %}
             </article>
         </li>
+        {% endif %}
     {% endfor %}
     </ul>
 </section>
