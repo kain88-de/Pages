@@ -25,31 +25,3 @@ jobs:
           name: pr-preview-${{ github.event.pull_request.number }}
           path: ./public
           retention-days: 7
-
-      - name: Comment on PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            const runId = context.runId;
-            const repo = context.repo;
-
-            const comment = `## 🔍 PR Preview Built Successfully!
-
-            The HTML output has been generated and is available for review.
-
-            **To review the HTML output:**
-            1. Go to the [workflow run](https://github.com/${repo.owner}/${repo.repo}/actions/runs/${runId})
-            2. Download the \`pr-preview-${prNumber}\` artifact
-            3. Extract the ZIP file and open \`index.html\` in your browser
-
-            The preview will be available for 7 days.
-
-            <sub>Built from commit ${context.payload.pull_request.head.sha.substring(0, 7)}</sub>`;
-
-            github.rest.issues.createComment({
-              issue_number: prNumber,
-              owner: repo.owner,
-              repo: repo.repo,
-              body: comment
-            });
