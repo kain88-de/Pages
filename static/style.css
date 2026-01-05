@@ -185,3 +185,35 @@ footer {
 footer a {
     color: #666;
 }
+
+.taxonomy-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.taxonomy-list li {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.taxonomy-list li a {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.taxonomy-list li a:hover {
+    background: #e0e0e0;
+}
+
+.taxonomy-list .count {
+    color: #999;
+    margin-left: 5px;
+}
